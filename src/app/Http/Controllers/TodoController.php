@@ -10,6 +10,7 @@ class TodoController extends Controller
 {
     public function index()
     {
+        // インスタンスの作成
         $todo = new Todo();
         $todos = $todo->all();
         // dd($todos);
