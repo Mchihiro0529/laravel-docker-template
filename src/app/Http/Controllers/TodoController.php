@@ -38,7 +38,7 @@ class TodoController extends Controller
 
         $this->todo->fill($inputs);
         $this->todo->save();
-        
+
         return redirect()->route('todo.index');
     }
 
@@ -46,6 +46,13 @@ class TodoController extends Controller
     {
         $todo = $this->todo->find($id);
         return view('todo.show', ['todo' => $todo]);
+    }
+
+    public function edit($id)
+    {
+        // TODO: 編集対象のレコードの情報を持つTodoモデルのインスタンスを取得
+        $todo = $this->todo->find($id);
+        return view('todo.edit',['todo' => $todo]);
     }
 
 }
