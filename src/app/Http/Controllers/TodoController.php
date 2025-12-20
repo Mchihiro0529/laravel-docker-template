@@ -45,6 +45,8 @@ class TodoController extends Controller
     public function show($id)
     {
         $todo = $this->todo->find($id);
+        // データベースから該当レコードを取得
+        // ビュー（ファイル）を表示し、$todoデータを渡して返す
         return view('todo.show', ['todo' => $todo]);
     }
 
@@ -55,7 +57,8 @@ class TodoController extends Controller
         return view('todo.edit',['todo' => $todo]);
     }
 
-    public function update(TodoRequest $request, $id) // 第1引数: リクエスト情報の取得　第2引数: ルートパラメータの取得
+    public function update(TodoRequest $request, $id) 
+    // メソッドインジェクション：第1引数: リクエスト情報の取得　第2引数: ルートパラメータの取得
     {
         // TODO: リクエストされた値を取得
         $inputs = $request->all();
